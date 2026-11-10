@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="register.css">
+
+  <title>Diamond Store | Register</title>
+</head>
+
+<body>
+ 
+  <!-- HEADER SIMPLE -->
+  <header class="header">
+    <div class="header-container">
+
+      <a href="index.html" class="logo-box">
+        <img src="Imagenes/logo.png" alt="Diamond Store Logo" class="logo">
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="login.html">Login</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- REGISTER MAIN -->
+  <main class="register-container">
+
+    <section class="register-box">
+
+      <h1>Crear Cuenta</h1>
+      <p class="subtitle">Regístrate para comenzar tu experiencia premium</p>
+
+      <form class="register-form" action="#" method="post">
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" placeholder="Tu nombre" required>
+          </div>
+
+          <div class="input-group">
+            <label for="lastname">Apellido</label>
+            <input type="text" id="lastname" placeholder="Tu apellido" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Correo</label>
+          <input type="email" id="email" placeholder="ejemplo@gmail.com" required>
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" placeholder="+51 999 999 999" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" placeholder="••••••••" required>
+        </div>
+
+        <div class="input-group">
+          <label for="confirm">Confirmar contraseña</label>
+          <input type="password" id="confirm" placeholder="••••••••" required>
+        </div>
+
+        <label class="terms">
+          <input type="checkbox" required>
+          Acepto los <a href="#">términos y condiciones</a>
+        </label>
+
+        <button type="submit" class="btn-register">Registrarme</button>
+
+        <p class="login-text">
+          ¿Ya tienes cuenta?
+          <a href="login.html">Inicia sesión</a>
+        </p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; Diamond Store 2026 - Todos los derechos reservados</p>
+  </footer>
+<script src="script.js"></script>
+<script src="register.js"></script>
+</body>
+</html>

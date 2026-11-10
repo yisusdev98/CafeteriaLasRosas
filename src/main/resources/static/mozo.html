@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="roles.css">
+  <title>Las Rosas | Panel de Mozo</title>
+</head>
+<body>
+  <header class="topbar"><div><span class="brand">LAS ROSAS</span><span class="brand-sub"> | Atención de pedidos</span></div><div class="session"><span id="staffName"></span><button id="logoutBtn">Cerrar sesión</button></div></header>
+  <div class="layout">
+    <aside class="sidebar"><h3>MENÚ MOZO</h3>
+      <button class="nav-btn active" data-section="inicio">Resumen</button>
+      <button class="nav-btn" data-section="nuevoPedido">Registrar pedido</button>
+      <button class="nav-btn" data-section="pedidos">Mis pedidos</button>
+      <button class="nav-btn" data-section="carta">Consultar carta</button>
+    </aside>
+    <main class="content">
+      <section id="inicio" class="section active-section">
+        <div class="section-heading"><div><span class="eyebrow">PANEL DE ATENCIÓN</span><h1>Bienvenido, Mozo</h1><p>Registra los pedidos, envíalos a caja y controla su entrega.</p></div></div>
+        <div class="stats staff-stats">
+          <article class="stat"><span>Pedidos en borrador</span><strong id="statBorrador">0</strong><small>Aún no enviados a caja</small></article>
+          <article class="stat"><span>En caja</span><strong id="statEnCaja">0</strong><small>Pendientes de atención</small></article>
+          <article class="stat"><span>Entregados</span><strong id="statEntregados">0</strong><small>Pedidos entregados</small></article>
+        </div>
+        <div class="info-card"><h2>Flujo de trabajo</h2><p>1. Registra el consumo de la mesa. 2. Envía el pedido a caja para que el cajero realice el cobro. 3. Marca el pedido como entregado cuando se haya atendido al cliente.</p></div>
+      </section>
+
+      <section id="nuevoPedido" class="section">
+        <div class="section-heading"><div><span class="eyebrow">RF07 · RF08</span><h1 id="pedidoFormHeading">Registrar pedido</h1><p>Selecciona los productos y cantidades solicitadas por el cliente.</p></div></div>
+        <div class="two-col order-layout">
+          <form id="pedidoForm" class="card-form">
+            <h2>Datos del pedido</h2><input type="hidden" id="pedidoId">
+            <label>Mesa / referencia<input id="pedidoMesa" maxlength="60" placeholder="Ej. Mesa 4" required></label>
+            <label>Producto<select id="productoSelect" required></select></label>
+            <label>Cantidad<input id="productoCantidad" type="number" min="1" step="1" value="1" required></label>
+            <button class="secondary full-width" type="button" id="agregarProducto">Agregar producto al pedido</button>
+            <div class="form-actions"><button class="primary" type="submit" id="guardarPedido">Registrar pedido</button><button class="secondary hidden" type="button" id="cancelarEdicion">Cancelar</button></div>
+            <p class="small-note">El pedido se guarda como borrador. Debes enviarlo a caja para que aparezca en el módulo del cajero.</p>
+          </form>
+          <div class="table-card"><div class="table-title"><h2>Detalle del pedido</h2><span id="cantidadLineas" class="muted">0 productos</span></div>
+            <div class="table-wrap"><table><thead><tr><th>Producto</th><th>Precio</th><th>Cant.</th><th>Importe</th><th></th></tr></thead><tbody id="pedidoItemsBody"></tbody></table></div>
+            <div class="order-total"><span>Subtotal referencial</span><strong id="pedidoSubtotal">S/ 0.00</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pedidos" class="section">
+        <div class="section-heading"><div><span class="eyebrow">RF09 · RF10</span><h1>Seguimiento de pedidos</h1><p>Envía los pedidos registrados a caja y marca su entrega.</p></div></div>
+        <div class="filter-bar"><select id="filtroPedidos"><option value="">Todos los estados</option><option value="Borrador">Borrador</option><option value="En caja">En caja</option><option value="Entregado">Entregado</option></select><button class="secondary" id="actualizarPedidos">Actualizar lista</button></div>
+        <div class="table-card"><div class="table-wrap"><table><thead><tr><th>Código</th><th>Fecha y hora</th><th>Mesa / cliente</th><th>Detalle</th><th>Importe</th><th>Estado pedido</th><th>Estado de pago</th><th>Acciones</th></tr></thead><tbody id="pedidosBody"></tbody></table></div></div>
+      </section>
+
+      <section id="carta" class="section">
+        <div class="section-heading"><div><span class="eyebrow">RF04</span><h1>Consultar carta</h1><p>Productos disponibles para registrar en los pedidos.</p></div></div>
+        <div class="filter-bar"><input id="buscarCarta" placeholder="Buscar producto..."><select id="filtroCategoria"><option value="">Todas las categorías</option><option>Bebida</option><option>Comida</option><option>Postre</option><option>Adicional</option></select></div>
+        <div id="cartaGrid" class="menu-grid"></div>
+      </section>
+    </main>
+  </div>
+  <script src="mozo.js"></script>
+</body>
+</html>

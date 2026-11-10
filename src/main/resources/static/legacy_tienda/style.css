@@ -1,0 +1,627 @@
+/* ==============================
+   RESET GENERAL
+   ============================== */
+* {
+    margin: 0;                       /* elimina márgenes automáticos */
+    padding: 0;                      /* elimina relleno automático */
+    box-sizing: border-box;          /* padding y border se suman dentro del tamaño final */
+    font-family: 'Poppins', sans-serif; /* fuente global */
+}
+
+/* Ajuste global para imágenes */
+img {
+    max-width: 100%;                 /* evita que una imagen sea más ancha que su contenedor */
+    height: auto;                    /* mantiene proporción */
+    display: block;                  /* elimina espacios invisibles debajo */
+}
+
+/* ==============================
+   BODY
+   ============================== */
+body {
+    background: #0b0b0b;             /* fondo negro elegante */
+    color: white;                    /* texto blanco */
+    line-height: 1.6;                /* separación entre líneas */
+}
+
+/* ==============================
+   HEADER FIXED (NAVBAR)
+   ============================== */
+.header {
+    position: fixed;                 /* el header se queda fijo al hacer scroll */
+    top: 0;                          /* pegado arriba */
+    left: 0;                         /* pegado a la izquierda */
+    width: 100%;                     /* ocupa todo el ancho */
+    height: 90px;                    /* altura fija del header */
+    z-index: 9999;                   /* asegura que esté encima del resto */
+
+    background: rgba(10, 10, 10, 0.85); /* negro transparente */
+    backdrop-filter: blur(10px);     /* desenfoque del fondo detrás */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* línea inferior tenue */
+}
+
+/* Contenedor del header */
+.header-container {
+    width: 100%;                     /* ocupa todo el ancho */
+    max-width: 1250px;               /* limita el ancho máximo */
+    height: 90px;                    /* misma altura que el header */
+
+    margin: 0 auto;                  /* centra el contenedor */
+    padding: 0 25px;                 /* espacio lateral */
+
+    display: flex;                   /* coloca elementos en fila */
+    justify-content: space-between;  /* separa izquierda, centro, derecha */
+    align-items: center;             /* centra verticalmente */
+}
+
+/* ==============================
+   NAV LINKS
+   ============================== */
+.nav {
+    display: flex;                   /* organiza links en fila */
+    gap: 28px;                       /* espacio entre links */
+}
+
+.nav a {
+    text-decoration: none;           /* quita subrayado */
+    font-size: 12px;                 /* tamaño pequeño elegante */
+    font-weight: 500;                /* grosor medio */
+    letter-spacing: 2px;             /* separa letras */
+    text-transform: uppercase;       /* convierte a mayúsculas */
+    color: rgba(255, 255, 255, 0.8); /* blanco suave */
+
+    transition: 0.3s;                /* suaviza hover */
+}
+
+.nav a:hover {
+    color: #d7b46a;                  /* cambia a dorado */
+}
+
+/* ==============================
+   LOGO
+   ============================== */
+
+
+.logo-box {
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: visible; /* deja crecer el logo sin recorte */
+    flex: 0 0 78px;
+}
+
+/* Imagen del logo */
+.logo-img {
+    width: 78px;
+    height: 78px;
+
+    object-fit: contain;
+    display: block;
+
+    transition: transform 0.35s ease, filter 0.35s ease;
+    filter: drop-shadow(0px 0px 14px rgba(215, 180, 106, 0.65));
+}
+
+/* Hover: agranda logo */
+.logo-box:hover .logo-img {
+    transform: scale(1.10);
+    filter: drop-shadow(0px 0px 22px rgba(215, 180, 106, 0.95));
+}
+
+/* Capa del destello */
+.shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 78px;
+    height: 78px;
+
+    border-radius: 12px;
+
+    overflow: hidden; /* ESTA capa recorta el destello */
+    pointer-events: none;
+}
+
+/* El destello real */
+.shine::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -150%;
+
+    width: 40%;
+    height: 220%;
+
+    background: rgba(255, 255, 255, 0.22);
+    transform: rotate(25deg);
+}
+
+/* animación destello */
+.logo-box:hover .shine::after {
+    animation: shineMove 0.9s forwards;
+}
+
+@keyframes shineMove {
+    from { left: -150%; }
+    to   { left: 150%; }
+}
+
+/* ==============================
+   HERO SECTION
+   ============================== */
+.hero {
+    margin-top: 90px;                /* baja el hero para que no lo tape el header */
+    height: calc(100vh - 90px);      /* ocupa la pantalla sin contar el header */
+    width: 100%;                     /* ancho completo */
+
+    position: relative;              /* necesario para overlay */
+    overflow: hidden;                /* evita desbordes del fondo */
+
+    background-image: url("Imagenes/hero.png"); /* imagen principal */
+    background-size: cover;          /* llena todo el espacio */
+    background-position: center;     /* centra el recorte */
+    background-repeat: no-repeat;    /* evita repetición */
+
+    display: flex;                   /* permite alinear contenido */
+    align-items: center;             /* centra verticalmente */
+    justify-content: flex-start;     /* alinea el texto a la izquierda */
+
+    padding: 0 8%;                   /* espacio lateral */
+}
+
+/* Capa oscura sobre la imagen */
+.hero::before {
+    content: "";                     /* crea la capa */
+    position: absolute;              /* se posiciona encima del fondo */
+    inset: 0;                        /* cubre todo el hero */
+    background: rgba(0,0,0,0.55);    /* oscurece la imagen */
+    z-index: 1;                      /* detrás del texto */
+}
+
+/* Caja de texto dentro del hero */
+.hero-overlay {
+    position: relative;              /* asegura que esté encima del overlay */
+    z-index: 2;                      /* encima del ::before */
+    max-width: 550px;                /* limita el ancho del texto */
+}
+
+.hero-overlay h1 {
+    font-size: 58px;                 /* tamaño grande */
+    font-weight: 700;                /* negrita */
+    letter-spacing: 2px;             /* estilo elegante */
+    line-height: 1.1;                /* compacta el texto */
+}
+
+.hero-overlay p {
+    margin-top: 15px;                /* separación del título */
+    font-size: 15px;                 /* tamaño moderado */
+    color: rgba(255,255,255,0.75);   /* blanco suave */
+}
+
+/* Botón hero */
+.hero-btn {
+    display: inline-block;           /* permite padding como botón */
+    margin-top: 28px;                /* separación */
+    padding: 12px 28px;              /* tamaño del botón */
+
+    border: 1px solid rgba(215,180,106,0.9); /* borde dorado */
+    border-radius: 10px;             /* esquinas redondeadas */
+
+    background: transparent;         /* sin fondo */
+    color: #d7b46a;                  /* texto dorado */
+
+    font-weight: 600;                /* semi-negrita */
+    font-size: 13px;                 /* tamaño del texto */
+    letter-spacing: 1px;             /* estilo premium */
+
+    text-decoration: none;           /* quita subrayado */
+    transition: 0.3s;                /* suaviza hover */
+}
+
+/* Hover del botón */
+.hero-btn:hover {
+    background: #d7b46a;             /* fondo dorado */
+    color: black;                    /* texto negro */
+}
+
+/* ==============================
+   SECCIONES GENERALES
+   ============================== */
+section {
+    padding: 90px 20px;              /* espacio arriba y abajo */
+}
+
+/* Contenedores centrados */
+.top-products,
+.about,
+.lookbook {
+    max-width: 1200px;               /* limita el ancho */
+    margin: auto;                    /* centra */
+}
+
+/* Títulos generales */
+h2 {
+    text-align: center;              /* centra texto */
+    font-size: 28px;                 /* tamaño */
+    font-weight: 600;                /* peso */
+    letter-spacing: 2px;             /* espaciado */
+    text-transform: uppercase;       /* mayúsculas */
+    margin-bottom: 60px;             /* espacio debajo */
+    color: rgba(255,255,255,0.9);    /* blanco suave */
+}
+
+/* ==============================
+   TOP PRODUCTS
+   ============================== */
+.cards {
+    display: grid;                   /* activa grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 35px;                       /* separación */
+}
+
+/* Card general */
+.card {
+    background: rgba(255,255,255,0.03); /* fondo suave */
+    border: 1px solid rgba(255,255,255,0.08); /* borde tenue */
+    border-radius: 18px;             /* redondeado */
+    overflow: hidden;                /* recorta imagen */
+    transition: 0.35s;               /* animación suave */
+}
+
+/* Hover de card */
+.card:hover {
+    transform: translateY(-8px);     /* sube ligeramente */
+    border-color: rgba(215,180,106,0.5); /* borde dorado */
+}
+
+/* Contenedor de imagen */
+.card-img {
+    height: 260px;                   /* altura fija */
+    overflow: hidden;                /* recorta zoom */
+}
+
+/* Imagen dentro del contenedor */
+.card-img img {
+    width: 100%;                     /* ocupa todo el contenedor */
+    height: 100%;                    /* ocupa todo el contenedor */
+    object-fit: cover;               /* llena sin deformar */
+    transition: 0.4s;                /* animación suave */
+}
+
+/* Zoom de imagen al hover */
+.card:hover .card-img img {
+    transform: scale(1.06);          /* zoom elegante */
+}
+
+/* Textos dentro card */
+.card h3 {
+    font-size: 16px;                 /* tamaño */
+    margin: 18px 20px 5px;           /* separación */
+    font-weight: 600;                /* negrita moderada */
+}
+
+.card p {
+    font-size: 13px;                 /* tamaño pequeño */
+    margin: 0 20px 15px;             /* separación */
+    color: rgba(255,255,255,0.65);   /* blanco suave */
+}
+
+/* Botón dentro card */
+.card-btn {
+    display: inline-block;           /* permite padding */
+    margin: 0 20px 22px;             /* separación */
+    padding: 9px 16px;               /* tamaño botón */
+
+    border-radius: 10px;             /* redondeado */
+    border: 1px solid rgba(255,255,255,0.18); /* borde suave */
+
+    text-decoration: none;           /* sin subrayado */
+    font-size: 12px;                 /* tamaño */
+    letter-spacing: 1px;             /* estilo */
+    color: rgba(255,255,255,0.85);   /* blanco */
+
+    transition: 0.3s;                /* suaviza hover */
+}
+
+/* Hover botón card */
+.card-btn:hover {
+    border-color: rgba(215,180,106,0.8); /* borde dorado */
+    color: #d7b46a;                  /* texto dorado */
+}
+
+/* ==============================
+   OFFERS SECTION
+   ============================== */
+.offers {
+    height: 90vh;                    /* ocupa gran parte de pantalla */
+
+    background-image: url("Imagenes/offers.png"); /* imagen de fondo */
+    background-size: cover;          /* cubre toda el área */
+    background-position: center;     /* centra */
+    background-repeat: no-repeat;    /* no repetir */
+
+    display: flex;                   /* permite centrar */
+    align-items: center;             /* centra vertical */
+    justify-content: center;         /* centra horizontal */
+
+    position: relative;              /* necesario para overlay */
+    overflow: hidden;                /* evita desbordes */
+    text-align: center;              /* centra texto */
+}
+
+/* Capa oscura */
+.offers::before {
+    content: "";                     /* crea overlay */
+    position: absolute;              /* se coloca encima */
+    inset: 0;                        /* cubre todo */
+    background: rgba(0,0,0,0.6);     /* oscurece */
+    z-index: 1;                      /* detrás del texto */
+}
+
+/* Contenido dentro de offers */
+.offers-overlay {
+    position: relative;              /* encima del overlay */
+    z-index: 2;                      /* asegura que se vea */
+    max-width: 700px;                /* ancho máximo */
+}
+
+/* Título offers */
+.offers-overlay h2 {
+    font-size: 40px;                 /* tamaño grande */
+    margin-bottom: 25px;             /* separación */
+}
+
+/* ==============================
+   ABOUT SECTION
+   ============================== */
+.about-container {
+    display: grid;                   /* organiza en columnas */
+    grid-template-columns: 1fr 1fr 1.3fr; /* dos imágenes + texto */
+    gap: 30px;                       /* separación */
+    align-items: center;             /* alinea vertical */
+}
+
+/* Tarjetas con imagen */
+.about-card {
+    height: 280px;                   /* altura fija */
+    border-radius: 18px;             /* bordes suaves */
+    overflow: hidden;                /* recorta imagen */
+    border: 1px solid rgba(255,255,255,0.08); /* borde tenue */
+}
+
+/* Imagen dentro about */
+.about-card img {
+    width: 100%;                     /* ancho completo */
+    height: 100%;                    /* alto completo */
+    object-fit: cover;               /* recorta elegante */
+    transition: 0.4s;                /* animación suave */
+}
+
+/* Hover imagen about */
+.about-card:hover img {
+    transform: scale(1.05);          /* zoom ligero */
+}
+
+/* Texto de about */
+.about-text {
+    font-size: 14px;                 /* tamaño cómodo */
+    color: rgba(255,255,255,0.75);   /* blanco suave */
+    line-height: 1.8;                /* más separación */
+}
+
+/* ==============================
+   LOOKBOOK
+   ============================== */
+.lookbook-grid {
+    display: grid;                   /* activa grid */
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 18px;                       /* separación */
+}
+
+/* Bloque lookbook */
+.lookbook-item {
+    height: 280px;                   /* altura fija */
+    border-radius: 18px;             /* bordes redondeados */
+    overflow: hidden;                /* recorta imagen */
+    border: 1px solid rgba(255,255,255,0.08); /* borde tenue */
+    transition: 0.3s;                /* animación suave */
+}
+
+/* Imagen dentro lookbook */
+.lookbook-item img {
+    width: 100%;                     /* ancho completo */
+    height: 100%;                    /* alto completo */
+    object-fit: cover;               /* recorta sin deformar */
+    transition: 0.4s;                /* transición */
+}
+
+/* Hover en lookbook */
+.lookbook-item:hover {
+    transform: scale(1.02);          /* agranda bloque */
+    border-color: rgba(215,180,106,0.6); /* borde dorado */
+}
+
+/* Zoom en imagen lookbook */
+.lookbook-item:hover img {
+    transform: scale(1.07);          /* zoom */
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+.footer {
+    padding: 35px 20px;              /* espacio interno */
+    text-align: center;              /* centra texto */
+    border-top: 1px solid rgba(255,255,255,0.08); /* borde superior */
+    color: rgba(255,255,255,0.6);    /* texto suave */
+    font-size: 13px;                 /* tamaño pequeño */
+}
+
+/* ==============================
+   RESPONSIVE (TABLET)
+   ============================== */
+@media (max-width: 950px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr); /* cambia a 2 columnas */
+    }
+
+    .lookbook-grid {
+        grid-template-columns: repeat(2, 1fr); /* lookbook a 2 columnas */
+    }
+
+    .about-container {
+        grid-template-columns: 1fr; /* se vuelve vertical */
+    }
+
+    .hero-overlay h1 {
+        font-size: 42px;             /* reduce el tamaño */
+    }
+}
+
+/* ==============================
+   RESPONSIVE (MÓVIL)
+   ============================== */
+@media (max-width: 600px) {
+
+    .header {
+        height: auto;                /* permite que crezca */
+        padding: 15px 0;             /* espacio interno */
+    }
+
+    .header-container {
+        height: auto;                /* elimina altura fija */
+        flex-direction: column;      /* apila nav y logo */
+        gap: 12px;                   /* espacio entre filas */
+        padding: 10px 15px;          /* padding más pequeño */
+    }
+
+    .nav {
+        justify-content: center;     /* centra links */
+        flex-wrap: wrap;             /* permite saltar de línea */
+        gap: 18px;                   /* separación */
+    }
+
+    .cards {
+        grid-template-columns: 1fr;  /* una sola columna */
+    }
+
+    .lookbook-grid {
+        grid-template-columns: 1fr;  /* una sola columna */
+    }
+
+    .hero {
+        justify-content: center;     /* centra contenido */
+        text-align: center;          /* centra texto */
+        padding: 0 6%;              /* reduce padding */
+    }
+
+    .hero-overlay h1 {
+        font-size: 32px;             /* título más pequeño */
+    }
+
+    .offers-overlay h2 {
+        font-size: 28px;             /* reduce el título */
+    }
+    }
+    .nav { 
+        display: none;              /* Oculto por defecto en móvil */
+    }                       
+    .nav.show {
+        display: flex; flex-direction: column; /* Se muestra al activar */
+    } 
+    .product-card {     /* Para que tus productos filtrados y elementos del carrito se vean bien */
+        transition: transform 0.2s;
+    }
+    .cart-item { 
+        display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 10px; 
+    }
+    .hidden {
+        display: none; 
+    }
+    
+    .product-card.oculto {  /* Cuando una tarjeta tenga esta clase, se oculta y el grid se reacomoda */
+        display: none !important;
+    }
+    /* Estilo para el nuevo botón circular 'Eliminar' */
+    /* Estilo para el botón Finalizar Compra */
+    /* Diseño del botón Eliminar */
+    .mi-boton-eliminar {
+        background-color: #ff0000;
+        color: white;
+        border-radius: 50%; /* Esto lo hace circular */
+        width: 45px;
+        height: 45px;
+        border: none;
+        cursor: pointer;
+        font-size: 10px;
+    }
+
+    /* --- Estilos simples para Contacto --- */
+     .contacto-container {
+        padding: 40px 20px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contacto-container h1 {
+        color: #ffff; /* Dorado */
+        margin-bottom: 20px;
+    }
+
+    .formulario-contacto {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input-group input, 
+    .input-group textarea {
+        width: 100%;
+        padding: 10px;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        color: white;
+        border-radius: 4px;
+    }
+
+    .btn-enviar {
+        padding: 12px;
+        background: #d4af37;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+        /* Asegura que el main tenga espacio para centrar cosas */
+    main {
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+    }
+
+    /* El contenedor del formulario centrado */
+    .contacto-container {
+        width: 100%;
+        max-width: 500px; /* Tamaño elegante, ni muy ancho ni muy estrecho */
+        text-align: center; /* Centra el título y el texto */
+    }
+
+    /* Alinea las etiquetas a la izquierda pero mantiene el bloque centrado */
+    .formulario-contacto {
+        text-align: left; 
+        margin-top: 20px;
+    }
+
+    .formulario-contacto button {
+        width: 100%; /* Botón ancho para que se vea pro */
+        margin-top: 10px;
+}

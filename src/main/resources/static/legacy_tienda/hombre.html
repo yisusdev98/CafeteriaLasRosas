@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shop.css">
+
+  <title>Diamond Store | Hombre</title>
+</head>
+
+<body>
+  
+  <header class="header">
+
+    <div class="header-top">
+
+      <a href="index.html" class="logo-box">
+        <img src="Imagenes/logo.png" alt="Diamond Store Logo" class="logo">
+      </a>
+
+      <form class="search-bar">
+        <input type="text" id="buscador" name="q" placeholder="Buscar productos para hombre...">
+        <button type="button">Buscar</button>
+      </form>
+
+      <div class="header-icons">
+        <a href="login.html" class="icon-link">
+          <img src="Imagenes/Imagen3.svg" alt="Perfil" class="icono">
+        </a>
+
+        <a href="cart.html" class="icon-link">
+          <img src="Imagenes/Imagen4.svg" alt="Carrito" class="icono">
+        </a>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a href="shop.html">Todo</a>
+      <a href="hombre.html" class="active">Hombre</a>
+      <a href="mujer.html">Mujer</a>
+      <a href="ofertas.html">Ofertas</a>
+    </nav>
+
+  </header>
+
+
+  <section class="shop-hero hero-hom">
+    <div class="shop-hero-overlay">
+      <h1>Hombre Collection</h1>
+      <p>Diseño elegante, minimalista y sofisticado para destacar con estilo.</p>
+      <a href="#productos" class="hero-btn">Explorar</a>
+    </div>
+  </section>
+
+
+  <main class="shop-main">
+
+     <!-- =========================
+          FILTROS
+      ========================== -->
+      <aside class="filters">
+
+        <h2>Filtros</h2>
+
+        <!-- Categoría -->
+        <div class="filter-box">
+          <h3>Categoría</h3>
+          <label><input type="radio" name="categoria" value="hombre"> Hombre</label>
+          <label><input type="radio" name="categoria" value="mujer"> Mujer</label>
+          <label><input type="radio" name="categoria" value="ofertas"> Ofertas</label>
+        </div>
+
+        <!-- Talla -->
+        <div class="filter-box">
+          <h3>Talla</h3>
+          <label><input type="radio" name="talla" value="s"> S</label>
+          <label><input type="radio" name="talla" value="m"> M</label>
+          <label><input type="radio" name="talla" value="l"> L</label>
+          <label><input type="radio" name="talla" value="xl"> XL</label>
+        </div>
+
+        <!-- Color -->
+        <div class="filter-box">
+          <h3>Color</h3>
+          <label><input type="radio" name="color" value="negro"> Negro</label>
+          <label><input type="radio" name="color" value="blanco"> Blanco</label>
+          <label><input type="radio" name="color" value="beige"> Beige</label>
+          <label><input type="radio" name="color" value="azul"> Azul</label>
+        </div>
+
+        <!-- Precio -->
+        <div class="filter-box">
+          <h3>Precio</h3>
+          <label><input type="radio" name="precio" value="150"> Menos de S/150</label>
+          <label><input type="radio" name="precio" value="150-300"> S/150 - S/300</label>
+          <label><input type="radio" name="precio" value="300"> Más de S/300</label>
+        </div>
+
+        <button class="btn-filter" onclick="aplicarFiltros()">Aplicar filtros</button>
+        <button class="btn-clear" onclick="limpiarFiltros()">Limpiar</button>
+
+      </aside>
+
+    <section class="products-section" id="productos">
+
+      <div class="products-header">
+        <h2>Hombre</h2>
+
+        <div class="sort-box">
+          <label for="sort">Ordenar:</label>
+          <select id="sort">
+            <option value="relevancia">Relevancia</option>
+            <option value="precio-menor">Precio: menor a mayor</option>
+            <option value="precio-mayor">Precio: mayor a menor</option>
+            <option value="nuevos">Nuevos</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="products-grid">
+
+        <article class="product-card" data-categoria="mujer" data-talla="S" data-color="beige" data-precio="420.00">
+              <div class="product-img">
+                <img src="Imagenes/look1.jpg" alt="Producto 1">
+                <span class="badge">Nuevo</span>
+              </div>
+              <div class="product-info">
+                <h3>Conjunto Varón Elegance</h3>
+                <p class="category">Hombre</p>
+                <p class="price">S/ 230.00</p>
+                <div class="product-buttons">
+                  <a href="product.html?id=1" class="btn-details">Ver detalles</a>
+                  <button class="btn-cart">Añadir</button>
+                </div>
+              </div>
+            </article>
+
+
+
+         <article class="product-card" data-categoria="hombre" data-talla="L" data-color="blanco" data-precio="350.00">
+              <div class="product-img">
+                <img src="Imagenes/look2.webp" alt="Producto 3">
+              </div>
+              <div class="product-info">
+                <h3>Traje Slim Diamond</h3>
+                <p class="category">Hombre</p>
+                <p class="price">S/ 350.00</p>
+                <div class="product-buttons">
+                  <a href="product.html" class="btn-details">Ver detalles</a>
+                  <button class="btn-cart">Añadir</button>
+                </div>
+              </div>
+            </article>
+
+
+
+       <article class="product-card"data-categoria="hombre" data-talla="L"  data-color="blanco"  data-precio="160.00">
+              <div class="product-img">
+                <img src="Imagenes/Camisa de Lino Blanca HOMBRE.webp" alt="Producto 6">
+              </div>
+              <div class="product-info">
+                <h3>Camisa Classic White</h3>
+                <p class="category">Hombre</p>
+                <p class="price">S/ 160.00</p>
+                <div class="product-buttons">
+                  <a href="product.html" class="btn-details">Ver detalles</a>
+                  <button class="btn-cart">Añadir</button>
+                </div>
+              </div>
+            </article>
+
+
+      </div>
+
+
+      <div class="pagination">
+        <a href="#" class="page active">1</a>
+        <a href="#" class="page">2</a>
+        <a href="#" class="page">Siguiente</a>
+      </div>
+
+    </section>
+
+  </main>
+
+
+<footer class="footer">
+    <p>&copy; Diamond Store 2026 - Todos los derechos reservados</p>
+    <p>Luxury | Elegance | Style</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="shop.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>

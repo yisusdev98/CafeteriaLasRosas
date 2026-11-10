@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="roles.css">
+  <title>Las Rosas | Panel de Cajero</title>
+</head>
+<body>
+  <header class="topbar"><div><span class="brand">LAS ROSAS</span><span class="brand-sub"> | Caja y facturación</span></div><div class="session"><span id="staffName"></span><button id="logoutBtn">Cerrar sesión</button></div></header>
+  <div class="layout">
+    <aside class="sidebar"><h3>MENÚ CAJERO</h3>
+      <button class="nav-btn active" data-section="inicio">Resumen</button>
+      <button class="nav-btn" data-section="pendientes">Pedidos pendientes</button>
+      <button class="nav-btn" data-section="historial">Boletas registradas</button>
+    </aside>
+    <main class="content">
+      <section id="inicio" class="section active-section">
+        <div class="section-heading"><div><span class="eyebrow">PANEL DE CAJA</span><h1>Bienvenido, Cajero</h1><p>Revisa pedidos enviados por el mozo y registra los cobros.</p></div></div>
+        <div class="stats staff-stats">
+          <article class="stat"><span>Pedidos por cobrar</span><strong id="statPendientes">0</strong><small>Enviados a caja</small></article>
+          <article class="stat"><span>Ventas registradas</span><strong id="statVentas">0</strong><small>Boletas generadas</small></article>
+          <article class="stat"><span>Total vendido</span><strong id="statIngresos">S/ 0.00</strong><small>Importe de ventas</small></article>
+        </div>
+        <div class="info-card"><h2>Proceso de cobro</h2><p>Selecciona un pedido pendiente, revisa sus productos, aplica el descuento que corresponda, verifica el IGV del 18 %, registra el pago y genera la boleta de venta. La propina es opcional.</p></div>
+      </section>
+
+      <section id="pendientes" class="section">
+        <div class="section-heading"><div><span class="eyebrow">RF11</span><h1>Pedidos pendientes de cobro</h1><p>Se muestran los pedidos que el mozo ya envió a caja y que aún no han sido pagados.</p></div></div>
+        <div class="table-card"><div class="table-title"><h2>Cola de pedidos</h2><button class="secondary" id="actualizarPendientes">Actualizar</button></div><div class="table-wrap"><table><thead><tr><th>Código</th><th>Fecha y hora</th><th>Mesa / cliente</th><th>Productos</th><th>Estado del pedido</th><th>Acción</th></tr></thead><tbody id="pendientesBody"></tbody></table></div></div>
+      </section>
+
+      <section id="cobrar" class="section">
+        <div class="section-heading"><div><span class="eyebrow">RF12 · RF13 · RF14</span><h1>Procesar cobro</h1><p id="cobroSubtitulo">Revisa los importes y registra el pago.</p></div></div>
+        <div class="two-col cash-layout">
+          <div class="table-card"><div class="table-title"><h2 id="cobroTitulo">Detalle del pedido</h2><span id="cobroCodigo" class="muted"></span></div><div class="table-wrap"><table><thead><tr><th>Producto</th><th>Precio</th><th>Cant.</th><th>Importe</th></tr></thead><tbody id="cobroItemsBody"></tbody></table></div><div class="order-total"><span>Subtotal</span><strong id="subtotalCalc">S/ 0.00</strong></div></div>
+          <form id="cobroForm" class="card-form"><input type="hidden" id="cobroPedidoId"><h2>Resumen de pago</h2>
+            <div class="calc-row"><span>Subtotal</span><strong id="subtotalResumen">S/ 0.00</strong></div>
+            <div class="calc-row"><span>IGV (18 %)</span><strong id="igvResumen">S/ 0.00</strong></div>
+            <label>Descuento (S/)<input id="descuento" type="number" min="0" step="0.01" value="0"></label>
+            <div class="calc-row"><span>Total de consumo</span><strong id="totalResumen">S/ 0.00</strong></div>
+            <label>Propina voluntaria (S/)<input id="propina" type="number" min="0" step="0.01" value="0"></label>
+            <label>Método de pago<select id="metodoPago"><option>Efectivo</option><option>Tarjeta</option><option>Otro (registro manual)</option></select></label>
+            <div class="grand-total"><span>Total a pagar</span><strong id="totalPagar">S/ 0.00</strong></div>
+            <div class="form-actions"><button class="primary" type="submit">Registrar cobro y generar boleta</button><button class="secondary" type="button" id="volverPendientes">Volver</button></div>
+            <p class="small-note">El sistema registra el medio de pago, pero no se conecta a pasarelas electrónicas.</p>
+          </form>
+        </div>
+      </section>
+
+      <section id="historial" class="section">
+        <div class="section-heading"><div><span class="eyebrow">RF13</span><h1>Boletas registradas</h1><p>Consulta las operaciones cobradas en el sistema.</p></div></div>
+        <div class="filter-bar"><label>Desde<input type="date" id="histDesde"></label><label>Hasta<input type="date" id="histHasta"></label><button class="primary" id="filtrarHistorial">Filtrar</button><button class="secondary" id="limpiarHistorial">Limpiar</button></div>
+        <div class="table-card"><div class="table-wrap"><table><thead><tr><th>Boleta</th><th>Fecha</th><th>Pedido</th><th>Mesa / cliente</th><th>Subtotal</th><th>IGV</th><th>Descuento</th><th>Propina</th><th>Total pagado</th><th></th></tr></thead><tbody id="historialBody"></tbody></table></div></div>
+      </section>
+    </main>
+  </div>
+  <div id="boletaPrint" class="receipt hidden" aria-hidden="true"></div>
+  <script src="cajero.js"></script>
+</body>
+</html>

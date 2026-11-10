@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cart.css">
+
+  <title>Diamond Store | Carrito</title>
+</head>
+
+<body>
+  
+  <!-- =========================
+       HEADER SIMPLE
+  ========================== -->
+  <header class="header">
+
+    <a href="index.html" class="logo-box">
+      <img src="Imagenes/logo.png" alt="Diamond Store Logo" class="logo">
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="login.html">Login</a>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main class="cart-container">
+
+    <h1 class="cart-title">Tu Carrito</h1>
+    <p class="cart-subtitle">Revisa tus productos antes de finalizar tu compra.</p>
+
+    <section class="cart-layout">
+    <div class="cart-products">
+        </div>
+
+    <aside class="cart-summary">
+        <h2>Resumen</h2>
+        <div class="summary-row">
+            <p>Subtotal</p>
+            <p id="subtotal">S/ 0.00</p>
+        </div>
+        <div class="summary-row">
+            <p>Envío</p>
+            <p id="envio">S/ 20.00</p>
+        </div>
+        <div class="summary-row total">
+            <p>Total</p>
+            <p id="total">S/ 0.00</p>
+        </div>
+        <button class="btn-finalizar" onclick="finalizarCompra()">Finalizar compra</button>
+        <a href="shop.html" class="continue">← Seguir comprando</a>
+    </aside>
+</section>
+    <!-- =========================
+     RECOMENDADOS
+========================== -->
+<section class="recommended">
+
+  <h2 class="recommended-title">Recomendados para ti</h2>
+  <p class="recommended-subtitle">Complementa tu estilo con nuestras mejores selecciones.</p>
+
+  <div class="recommended-grid">
+
+    <article class="recommended-card">
+      <img src="Imagenes/ROPA_VARON/Polo1.jpg" alt="Producto recomendado 1">
+      <h3>Camisa Luxury Black</h3>
+      <p class="rec-price">S/ 180.00</p>
+      <a href="product.html" class="rec-btn">Ver detalles</a>
+    </article>
+
+    <article class="recommended-card">
+      <img src="Imagenes/producto2.avif" alt="Producto recomendado 2">
+      <h3>Abrigo Premium Coat</h3>
+      <p class="rec-price">S/ 290.00</p>
+      <a href="product.html" class="rec-btn">Ver detalles</a>
+    </article>
+
+    <article class="recommended-card">
+      <img src="Imagenes/producto3.webp" alt="Producto recomendado 3">
+      <h3>Traje Diamond Slim</h3>
+      <p class="rec-price">S/ 350.00</p>
+      <a href="product.html" class="rec-btn">Ver detalles</a>
+    </article>
+
+    <article class="recommended-card">
+      <img src="Imagenes/2_71a094b4-48d2-4d3e-ba25-bd31979d890f.webp" alt="Producto recomendado 4">
+      <h3>Vestido Elegant Night</h3>
+      <p class="rec-price">S/ 249.00</p>
+      <a href="product.html" class="rec-btn">Ver detalles</a>
+    </article>
+
+  </div>
+
+</section>
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="footer">
+    <p>&copy; Diamond Store 2026 - Todos los derechos reservados</p>
+  </footer>
+<script src="script.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

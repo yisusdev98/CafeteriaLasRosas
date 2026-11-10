@@ -1,0 +1,332 @@
+/* ==============================
+   RESET GENERAL
+   ============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* evita deformaciones en imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==============================
+   BODY
+   ============================== */
+body {
+  background: #0b0b0b;
+  color: white;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ==============================
+   HEADER
+   ============================== */
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* logo */
+.logo-box {
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  filter: drop-shadow(0px 0px 12px rgba(215, 180, 106, 0.55));
+  transition: 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0px 0px 18px rgba(215, 180, 106, 0.9));
+}
+
+/* navegación */
+.nav {
+  display: flex;
+  gap: 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #d7b46a;
+}
+
+/* ==============================
+   REGISTER CONTAINER
+   ============================== */
+.register-container {
+  min-height: calc(100vh - 160px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 50px 20px;
+
+  background-image: url("Imagenes/login-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* overlay oscuro */
+.register-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+/* ==============================
+   CAJA REGISTER
+   ============================== */
+.register-box {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 520px;
+
+  padding: 40px 35px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+/* título */
+.register-box h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* subtítulo */
+.subtitle {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 30px;
+
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==============================
+   FORMULARIO
+   ============================== */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* fila de inputs */
+.input-row {
+  display: flex;
+  gap: 14px;
+}
+
+/* grupo de input */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.input-group label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* input */
+.input-group input {
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  outline: none;
+  color: white;
+
+  transition: 0.3s;
+}
+
+/* focus input */
+.input-group input:focus {
+  border-color: rgba(215, 180, 106, 0.75);
+  box-shadow: 0px 0px 12px rgba(215, 180, 106, 0.2);
+}
+
+/* ==============================
+   TÉRMINOS
+   ============================== */
+.terms {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.terms input {
+  accent-color: #d7b46a;
+}
+
+.terms a {
+  color: #d7b46a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   BOTÓN REGISTER
+   ============================== */
+.btn-register {
+  width: 100%;
+  padding: 14px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(215, 180, 106, 0.75);
+  background: transparent;
+
+  color: #d7b46a;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-register:hover {
+  background: #d7b46a;
+  color: black;
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   TEXTO LOGIN
+   ============================== */
+.login-text {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-text a {
+  color: #d7b46a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+.footer {
+  padding: 30px 20px;
+  text-align: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 650px) {
+  .header-container {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .register-box {
+    padding: 30px 20px;
+  }
+
+  .register-box h1 {
+    font-size: 26px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+}

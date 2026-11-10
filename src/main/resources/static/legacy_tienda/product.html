@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="product.css">
+
+  <title>Diamond Store | Producto</title>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER / NAVBAR
+  ========================== -->
+  <header class="header">
+
+    <div class="header-top">
+
+      <a href="index.html" class="logo-box">
+        <img src="Imagenes/logo.png" alt="Diamond Store Logo" class="logo">
+      </a>
+
+      <form class="search-bar">
+    <input type="text" id="buscador" name="q" placeholder="Buscar productos...">
+    <button type="button" id="btnBuscar">Buscar</button>
+</form>
+
+      <div class="header-icons">
+        <a href="login.html" class="icon-link">
+          <img src="Imagenes/Imagen3.svg" alt="Perfil" class="icono">
+        </a>
+
+        <a href="cart.html" class="icon-link">
+          <img src="Imagenes/Imagen4.svg" alt="Carrito" class="icono">
+        </a>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a href="shop.html">Tienda</a>
+      <a href="hombre.html">Hombre</a>
+      <a href="mujer.html">Mujer</a>
+      <a href="ofertas.html">Ofertas</a>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN PRODUCT
+  ========================== -->
+  <main class="product-main">
+
+    <!-- Migas de pan -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="shop.html">Shop</a>
+      <span>/</span>
+      <p>Producto</p>
+    </div>
+
+
+    <!-- =========================
+         PRODUCT CONTAINER
+    ========================== -->
+    <section class="product-container">
+
+      <!-- Galería -->
+      <div class="product-gallery">
+
+        <div class="main-image">
+          <img src="Imagenes/look1.jpg" alt="Producto principal">
+        </div>
+
+        <div class="thumbs">
+          <img src="Imagenes/look1_izquierda.jpg" alt="Miniatura 1">
+          <img src="Imagenes/look1_derecha.jpg" alt="Miniatura 2">
+          <img src="Imagenes/look1_espalda.jpg" alt="Miniatura 3">
+          <img src="Imagenes/product4.webp" alt="Miniatura 4">
+        </div>
+
+      </div>
+
+
+      <!-- Info -->
+      <div class="product-info">
+
+        <span class="product-tag">Nueva Colección</span>
+
+        <h1>Conjunto Varón Elegance</h1>
+
+        <p class="product-category">Categoría: <span>Hombre</span></p>
+
+        <p class="product-price">S/ 230.00</p>
+
+        <p class="product-description">
+          Un conjunto premium diseñado para quienes buscan elegancia moderna.
+          Tela suave, ajuste sofisticado y acabado de lujo para destacar en cualquier ocasión.
+        </p>
+
+
+        <!-- Colores -->
+        <div class="options-box">
+          <h3>Color</h3>
+
+          <div class="colors">
+            <span class="color black" title="Negro"></span>
+            <span class="color white" title="Blanco"></span>
+            <span class="color beige" title="Beige"></span>
+            <span class="color blue" title="Azul"></span>
+          </div>
+        </div>
+
+
+        <!-- Tallas -->
+        <div class="options-box">
+          <h3>Talla</h3>
+
+          <div class="sizes">
+            <button type="button">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+            <button type="button">XL</button>
+          </div>
+        </div>
+
+
+        <!-- Cantidad -->
+        <div class="options-box">
+          <h3>Cantidad</h3>
+
+          <div class="quantity">
+            <button type="button">-</button>
+            <input type="number" value="1" min="1">
+            <button type="button">+</button>
+          </div>
+        </div>
+
+
+        <!-- Botones -->
+        <div class="product-actions">
+          <button class="btn-cart">Añadir al carrito</button>
+          <a href="cart.html" class="btn-buy">Comprar ahora</a>
+        </div>
+
+
+        <!-- Detalles rápidos -->
+        <div class="extra-details">
+          <p><strong>✔ Envíos rápidos</strong> en todo el Perú</p>
+          <p><strong>✔ Calidad Premium</strong> garantizada</p>
+          <p><strong>✔ Cambios</strong> dentro de 7 días</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRODUCT DETAILS
+    ========================== -->
+    <section class="product-details">
+
+      <h2>Detalles del Producto</h2>
+
+      <div class="details-grid">
+
+        <div class="detail-box">
+          <h3>Material</h3>
+          <p>Algodón premium + mezcla elegante para máxima comodidad.</p>
+        </div>
+
+        <div class="detail-box">
+          <h3>Diseño</h3>
+          <p>Minimalista, moderno y con estilo europeo.</p>
+        </div>
+
+        <div class="detail-box">
+          <h3>Cuidados</h3>
+          <p>Lavar en frío. No usar cloro. Planchar a baja temperatura.</p>
+        </div>
+
+        <div class="detail-box">
+          <h3>Entrega</h3>
+          <p>Delivery rápido y seguro con embalaje premium.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RELATED PRODUCTS
+    ========================== -->
+    <section class="related-products">
+
+      <h2>También podría interesarte</h2>
+
+      <div class="related-grid">
+
+        <article class="related-card">
+          <img src="Imagenes/product2.webp" alt="Producto relacionado">
+          <h3>Conjunto Dama Luxury</h3>
+          <p>S/ 420.00</p>
+          <a href="product.html">Ver</a>
+        </article>
+
+        <article class="related-card">
+          <img src="Imagenes/product3.webp" alt="Producto relacionado">
+          <h3>Traje Slim Diamond</h3>
+          <p>S/ 350.00</p>
+          <a href="product.html">Ver</a>
+        </article>
+
+        <article class="related-card">
+          <img src="Imagenes/product4.webp" alt="Producto relacionado">
+          <h3>Abrigo Premium Coat</h3>
+          <p>S/ 290.00</p>
+          <a href="product.html">Ver</a>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+ <footer class="footer">
+    <p>&copy; Diamond Store 2026 - Todos los derechos reservados</p>
+    <p>Luxury | Elegance | Style</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>
